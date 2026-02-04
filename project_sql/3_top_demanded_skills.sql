@@ -33,7 +33,7 @@ LIMIT 5 ;
 
 
 
--- Alternative Query Using A SubQuery
+-- Alternative Query Using A Sub-Query
 
 SELECT
     skills,
@@ -43,6 +43,40 @@ FROM(
     SELECT
         skill_id,
         COUNT(job_postings_fact.job_id) AS skill_count
+    FROM
+        job_postings_fact
+    INNER JOIN
+        skills_job_dim
+    ON
+        job_postings_fact.job_id = skills_job_dim.job_id
+    WHERE
+        job_postings_fact.job_title_short = 'Data Analyst' AND
+        job_postings_fact.job_work_from_home = True
+    GROUP BY
+        skill_id
+    ORDER BY
+        skill_count DESC
+    LIMIT 5 
+) AS skill_demand
+
+INNER JOIN
+    skills_dim
+ON
+    skill_demand.skill_id = skills_dim.skill_id
+ORDER BY
+        skill_count DESC ;
+
+
+-- Counting on skill_id from skills_job_dim table
+
+SELECT
+    skills,
+    skill_count
+
+FROM(
+    SELECT
+        skill_id,
+        COUNT(skills_job_dim.skill_id) AS skill_count
     FROM
         job_postings_fact
     INNER JOIN

@@ -84,11 +84,11 @@ Different companies pay different salaries for the role. This may be based on ca
 
 ### Q2: What are the skills for the top-paying Data Analyst jobs?
 
-Presents the skills that are required for those jobs that pay the most in a Data Analyst role.
+Presents the skills that are required for those jobs that pay the most in a Data Analyst role, i.e. the skills of the top paying Data Analyst jobs.
 
-To answer this question, the dataset was filtered based on yearly salary values that were NOT NULL, while returning the information for the job identification, title, company name, and salary sorted in descending order. The jobs were then sorted in decreasing order of average salary values.  
+To answer this question, the dataset was filtered based on yearly salary values that were NOT NULL, while returning the information for the job identification, title, company name, and salary sorted in descending order. The final results were then sorted in decreasing order of average salary values.  
 
-A JOIN operation was used to extract the skills and company names (from their respective dimension tables) that matched the high-paying jobs.
+A JOIN operation was used to extract the skills, company names and other needed data(from their respective dimension tables) that matched the high-paying jobs.
 
 The result of this analysis will provide invaluable information on the skills required to aspire for any top-paying Data Analyst role in a particular organization. Any data professional seeking a high-paying role in any company will be aware of the skills needed for such a position.
 
@@ -160,9 +160,88 @@ Specialized skills in Web Applications, Cloud applications, and DevOps will sign
 
 For the most in-demand skills of the top paying job skills, VISUALIZATION and ANALYTICAL skills contributed more to a high-paying Data Analyst role. The Database Manipulation skill has a lower influence (in comparison) on the pay of the Data Analyst role.
 
-![Top ten In-Demand Skills for High Paying Data Analyst Jobs](images\Top_10_Most_InDemand_Skills_for_High_Paying_Data_Analyst_Jobs.jpg)*Plot of Most In-Demand Skills for High Paying Data Analyst Jobs*
+ 
+![Skills for Top Paying Data Analyst Jobs](images\Analysis_of_Skills_for_Top_Paying_Data_Analyst_Jobs.jpg) *Plot of Top Paying Skills and Top Paying Most In-Demand Skills for High Paying Data Analyst Jobs*
 
-![Skills for Top Paying Data Analyst Jobs](images\Analysis_of_Skills_for_Top_Paying_Data_Analyst_Jobs.jpg) *Plot of Top Paying Skills and Top Paying Most In-Demand Skills for High Paying Data Analyst Jobs
+![Top ten In-Demand Skills for High Paying Data Analyst Jobs](images\Likelihood_of_Skills_Needed_for_High_Paying_Data_Analyst_Jobs.png)*Plot of Likelihood of Most In-Demand Skills for High Paying Data Analyst Jobs*
+
+### Q3: What are the Most In-Demand skills for Data Analyst role?
+
+This involves presenting the most frequently mentioned skills in job postings for any role of interest (in our case, the Data Analyst role). A count of the skills, in postings for a Data Analyst job, is obtained with the final result sorted in descending order (of the count values).
+
+A Join operation is employed to bring together the needed and necessary data from multiple tables (jobs_posted_fact, skills_dim, and skills_job_dim tables), and the count of the skills for all the Data Analyst job postings (that had yearly salary values) was obtained. The top six (6) skills were extracted and presented in a pie chart.
+
+This analysis will provide feedback on the most in-demand skills for a Data Analyst role. That way, the knowledge of the skills to develop for the role of interest will be readily available, thus saving time and effort.  
+
+SQL code is shown below
+```sql
+
+SELECT
+    skills,
+    skill_count
+
+FROM(
+        SELECT
+            skill_id,
+            COUNT(skills_job_dim.skill_id) AS skill_count
+        FROM
+            job_postings_fact
+        INNER JOIN
+            skills_job_dim
+        ON
+            job_postings_fact.job_id = skills_job_dim.job_id
+        WHERE
+            job_postings_fact.job_title_short = 'Data Analyst' AND
+            job_postings_fact.salary_year_avg IS NOT NULL
+        GROUP BY
+            skill_id
+        ORDER BY
+            skill_count DESC
+    ) AS skill_demand
+
+INNER JOIN
+    skills_dim
+ON
+    skill_demand.skill_id = skills_dim.skill_id
+ORDER BY
+        skill_count DESC ;
+
+```
+Alternative SQL query is
+
+```sql
+
+SELECT 
+    skills_dim.skills,
+    COUNT(*) AS demand_count
+    
+FROM
+    job_postings_fact
+INNER JOIN
+    skills_job_dim ON job_postings_fact.job_id = skills_job_dim.job_id
+INNER JOIN
+    skills_dim ON skills_job_dim.skill_id = skillS_dim.skill_id
+WHERE
+    job_title_short = 'Data Analyst' AND
+    job_postings_fact.salary_year_avg IS NOT NULL
+GROUP BY
+    skills_dim.skills
+ORDER BY
+    demand_count DESC ;
+
+```
+
+#### INSIGHTS
+
+SQL is the most in-demand skill for Data Analysts. The analysis of the TOP 5 skills showed SQL ranked first with 31%, followed by Excel (22%), Python (19%), Tableau (17%), and R (11%).
+
+Analytical skills made up four (4) of the top five (5) most in-demand skills for Data Analysts.
+
+The fact that SQL is the most in-demand skill indicates that many companies and organizations maintain a database. Therefore, the ability to query the database(s) to retrieve data for analysis is important.
+
+![Top 5 In-Demand_Skills For Data Analyst](images\Pie_Chart_Top_5_In-Demand_Skills_for_Data_Analysts.jpg)*Assessment of the top 5 In-Demand Data Analyst skills*
+
+
 
 
 -	What I Learned

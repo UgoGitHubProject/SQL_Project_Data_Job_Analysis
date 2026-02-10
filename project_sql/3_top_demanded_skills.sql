@@ -90,7 +90,7 @@ FROM(
         skill_id
     ORDER BY
         skill_count DESC
-    LIMIT 5 
+    LIMIT 20
 ) AS skill_demand
 
 INNER JOIN

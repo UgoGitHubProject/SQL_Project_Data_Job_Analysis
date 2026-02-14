@@ -167,9 +167,9 @@ For the most in-demand skills of the top paying job skills, VISUALIZATION and AN
 
 ### Q3: What are the Most In-Demand skills for Data Analyst role?
 
-This involves presenting the most frequently mentioned skills in job postings for any role of interest (in our case, the Data Analyst role). A count of the skills, in postings for a Data Analyst job, is obtained with the final result sorted in descending order (of the count values).
+This involved presenting the most frequently mentioned skills in job postings for any role of interest (in our case, the Data Analyst role). A count of the skills, in postings for a Data Analyst job, was obtained with the final result sorted in descending order (of the count values).
 
-A Join operation is employed to bring together the needed and necessary data from multiple tables (jobs_posted_fact, skills_dim, and skills_job_dim tables), and the count of the skills for all the Data Analyst job postings (that had yearly salary values) was obtained. The top six (6) skills were extracted and presented in a pie chart.
+A Join operation was employed to combine the necessary data from multiple tables (jobs_posted_fact, skills_dim, and skills_job_dim), and the count of the skills for all the Data Analyst job postings (that had yearly salary values) was obtained. The top six (6) skills were extracted and presented in a pie chart.
 
 This analysis will provide feedback on the most in-demand skills for a Data Analyst role. That way, the knowledge of the skills to develop for the role of interest will be readily available, thus saving time and effort.  
 
@@ -240,6 +240,88 @@ Analytical skills made up four (4) of the top five (5) most in-demand skills for
 The fact that SQL is the most in-demand skill indicates that many companies and organizations maintain a database. Therefore, the ability to query the database(s) to retrieve data for analysis is important.
 
 ![Top 5 In-Demand_Skills For Data Analyst](images\Pie_Chart_Top_5_In-Demand_Skills_for_Data_Analysts.jpg)*Assessment of the top 5 In-Demand Data Analyst skills*
+
+### Q4: What are the Top skills for a Job role, based on salary?
+
+This question aimed to determine the most valuable skills for a particular job role based on their influence on the average annual salary rather than how many times they appeared (or are mentioned) in a job posting.
+
+A Join operation was used to combine data from multiple tables (jobs_posted_fact, skills_dim, and skills_job_dim), and the average yearly salary of all skills for the DATA ANALYST job role was calculated. The values were then ordered in descending order of salary values.
+
+This analysis will present invaluable information on the MOST FINANCIALLY VALUABLE AND REWARDING skill to acquire. It will also show the impact skills have on the average annual salary value for a data role of interest.
+
+SQL code is shown below
+```sql
+
+SELECT 
+    skills_dim.skills,
+    ROUND(AVG(salary_year_avg), 0) AS average_salary
+    
+FROM
+    job_postings_fact
+INNER JOIN
+    skills_job_dim ON job_postings_fact.job_id = skills_job_dim.job_id
+INNER JOIN
+    skills_dim ON skills_job_dim.skill_id = skillS_dim.skill_id
+WHERE
+    job_title_short = 'Data Analyst' AND
+    salary_year_avg IS NOT NULL AND
+    job_work_from_home = True
+GROUP BY
+    skills_dim.skills
+ORDER BY
+    average_salary DESC
+LIMIT 25 ;
+
+```
+
+
+Alternatively, the SQL code below presents the average salary and median salary values of the skills in one result table
+
+```sql
+
+SELECT
+        skdim.skills AS skill_name,
+        skdim.type AS skill_type,
+        PERCENTILE_CONT(0.5) WITHIN GROUP(
+            ORDER BY Salary_Data_Jobs.salary_year_avg DESC
+        )::INTEGER AS Median_Salary,
+        ROUND(AVG(Salary_Data_Jobs.salary_year_avg),0) AS average_yearly_salary
+FROM(
+        SELECT
+            job_id, 
+            salary_year_avg
+        FROM
+            job_postings_fact AS jpf
+        WHERE
+            salary_year_avg IS NOT NULL AND
+            job_title_short = 'Data Analyst'
+        
+) AS Salary_Data_Jobs
+INNER JOIN 
+    skills_job_dim AS sjdim ON sjdim.job_id = Salary_Data_Jobs.job_id
+INNER JOIN
+    skills_dim skdim ON skdim.skill_id = sjdim.skill_id
+GROUP BY
+    skdim.skills,
+    skdim.type
+ORDER BY
+    average_yearly_salary DESC,
+    Median_Salary DESC
+
+```
+
+#### INSIGHTS
+
+Cloud, Databases, and Libraries are the top 3 SKILLS categories with the highest median salaries for a data analyst role.
+
+Specialized skills in Version Control Tools (such as Apache Subversion (SVN)) can attract a high average salary for a data analyst. In all, the top 10 skills for Data Analysts - based on salary - are specialized
+
+Programming, Libraries, and Analyst Tools are the top 3 categories of the most in-demand, highest-paying skills for a data analyst role. Skills in these categories are frequently mentioned in job postings.
+
+![Top_10_Highest_Paying_Skills_for_Data_Analyst](images\Top_Ten_Highest_Paying_Skills_for_Data_Analyst.jpg)*Top ten (10) skills for a Data Analyst job role based on Average Yearly Salary*
+
+
+![Top_Highest_Paying_Skills_Categories](images\Top_Ten_Highest_Paying_Skills_Categories_for_Data_Analyst.jpg)*Top Skills Categories, for Data Analysts, with Highest Median Salary*
 
 
 

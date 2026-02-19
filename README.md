@@ -77,9 +77,11 @@ Senior Roles Pay Significantly More. Director and Principal titles (e.g., "Direc
 
 Different companies pay different salaries for the role. This may be based on cader and experience.
 
-![Salaries from different companies](images/Top_Ten_Companies_With_Most_Pay_For_Data_Analysts.jpg) *Plot of Average Yearly Salary for Work From Home Location Data Analyst Role from Different Companies*
+![Salaries from different companies](images/Top_Ten_Companies_With_Most_Pay_For_Data_Analysts.jpg) 
+*Plot of Average Yearly Salary for Work From Home Location Data Analyst Role from Different Companies*
 
-![Salaries for different Data Analyst Roles](images/Top_Ten_Highest_Paying_Data_Analyst_Roles.jpg)*Plot of Average Yearly Salary for Work From Home Location for different Data Analyst Roles*
+![Salaries for different Data Analyst Roles](images/Top_Ten_Highest_Paying_Data_Analyst_Roles.jpg)
+*Plot of Average Yearly Salary for Work From Home Location for different Data Analyst Roles*
 
 
 ### Q2: What are the skills for the top-paying Data Analyst jobs?
@@ -161,9 +163,11 @@ Specialized skills in Web Applications, Cloud applications, and DevOps will sign
 For the most in-demand skills of the top paying job skills, VISUALIZATION and ANALYTICAL skills contributed more to a high-paying Data Analyst role. The Database Manipulation skill has a lower influence (in comparison) on the pay of the Data Analyst role.
 
  
-![Skills for Top Paying Data Analyst Jobs](images/Analysis_of_Skills_for_Top_Paying_Data_Analyst_Jobs.jpg) *Plot of Top Paying Skills and Top Paying Most In-Demand Skills for High Paying Data Analyst Jobs*
+![Skills for Top Paying Data Analyst Jobs](images/Analysis_of_Skills_for_Top_Paying_Data_Analyst_Jobs.jpg) 
+*Plot of Top Paying Skills and Top Paying Most In-Demand Skills for High Paying Data Analyst Jobs*
 
-![Top ten In-Demand Skills for High Paying Data Analyst Jobs](images/Likelihood_of_Skills_Needed_for_High_Paying_Data_Analyst_Jobs.png)*Plot of Likelihood of Most In-Demand Skills for High Paying Data Analyst Jobs*
+![Top ten In-Demand Skills for High Paying Data Analyst Jobs](images/Likelihood_of_Skills_Needed_for_High_Paying_Data_Analyst_Jobs.png)
+*Plot of Likelihood of Most In-Demand Skills for High Paying Data Analyst Jobs*
 
 ### Q3: What are the Most In-Demand skills for Data Analyst role?
 

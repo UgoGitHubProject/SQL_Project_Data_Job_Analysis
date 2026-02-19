@@ -165,10 +165,12 @@ Specialized skills in Web Applications, Cloud applications, and DevOps will sign
 For the most in-demand skills of the top paying job skills, VISUALIZATION and ANALYTICAL skills contributed more to a high-paying Data Analyst role. The Database Manipulation skill has a lower influence (in comparison) on the pay of the Data Analyst role.
 
  
-![Skills for Top Paying Data Analyst Jobs](images/Analysis_of_Skills_for_Top_Paying_Data_Analyst_Jobs.jpg) 
+![Skills for Top Paying Data Analyst Jobs](images/Analysis_of_Skills_for_Top_Paying_Data_Analyst_Jobs.jpg)
+
 *Plot of Top Paying Skills and Top Paying Most In-Demand Skills for High Paying Data Analyst Jobs*
 
 ![Top ten In-Demand Skills for High Paying Data Analyst Jobs](images/Likelihood_of_Skills_Needed_for_High_Paying_Data_Analyst_Jobs.png)
+
 *Plot of Likelihood of Most In-Demand Skills for High Paying Data Analyst Jobs*
 
 ### Q3: What are the Most In-Demand skills for Data Analyst role?
@@ -245,7 +247,9 @@ Analytical skills made up four (4) of the top five (5) most in-demand skills for
 
 The fact that SQL is the most in-demand skill indicates that many companies and organizations maintain a database. Therefore, the ability to query the database(s) to retrieve data for analysis is important.
 
-![Top 5 In-Demand_Skills For Data Analyst](images/Pie_Chart_Top_5_In-Demand_Skills_for_Data_Analysts.jpg)*Assessment of the top 5 In-Demand Data Analyst skills*
+![Top 5 In-Demand_Skills For Data Analyst](images/Pie_Chart_Top_5_In-Demand_Skills_for_Data_Analysts.jpg)
+
+*Assessment of the top 5 In-Demand Data Analyst skills*
 
 ### Q4: What are the Top skills for a Job role, based on salary?
 
@@ -324,10 +328,14 @@ Specialized skills in Version Control Tools (such as Apache Subversion (SVN)) ca
 
 Programming, Libraries, and Analyst Tools are the top 3 categories of the most in-demand, highest-paying skills for a data analyst role. Skills in these categories are frequently mentioned in job postings.
 
-![Top_10_Highest_Paying_Skills_for_Data_Analyst](images/Top_Ten_Highest_Paying_Skills_for_Data_Analyst.jpg)*Top ten (10) skills for a Data Analyst job role based on Average Yearly Salary*
+![Top_10_Highest_Paying_Skills_for_Data_Analyst](images/Top_Ten_Highest_Paying_Skills_for_Data_Analyst.jpg)
+
+*Top ten (10) skills for a Data Analyst job role based on Average Yearly Salary*
 
 
-![Top_Highest_Paying_Skills_Categories](images/Top_Ten_Highest_Paying_Skills_Categories_for_Data_Analyst.jpg)*Top Skills Categories, for Data Analysts, with Highest Median Salary*
+![Top_Highest_Paying_Skills_Categories](images/Top_Ten_Highest_Paying_Skills_Categories_for_Data_Analyst.jpg)
+
+*Top Skills Categories, for Data Analysts, with Highest Median Salary*
 
 
 ### Q5: What are the MOST OPTIMAL skills for a Job role?

@@ -77,10 +77,12 @@ Senior Roles Pay Significantly More. Director and Principal titles (e.g., "Direc
 
 Different companies pay different salaries for the role. This may be based on cader and experience.
 
-![Salaries from different companies](images/Top_Ten_Companies_With_Most_Pay_For_Data_Analysts.jpg) 
+![Salaries from different companies](images/Top_Ten_Companies_With_Most_Pay_For_Data_Analysts.jpg)
+
 *Plot of Average Yearly Salary for Work From Home Location Data Analyst Role from Different Companies*
 
 ![Salaries for different Data Analyst Roles](images/Top_Ten_Highest_Paying_Data_Analyst_Roles.jpg)
+
 *Plot of Average Yearly Salary for Work From Home Location for different Data Analyst Roles*
 
 

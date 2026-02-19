@@ -324,9 +324,128 @@ Programming, Libraries, and Analyst Tools are the top 3 categories of the most i
 ![Top_Highest_Paying_Skills_Categories](images/Top_Ten_Highest_Paying_Skills_Categories_for_Data_Analyst.jpg)*Top Skills Categories, for Data Analysts, with Highest Median Salary*
 
 
+### Q5: What are the MOST OPTIMAL skills for a Job role?
+
+This scenario focused on identifying high-paying, most in-demand skills for a Data Analyst role. It analyzed the skills for a Data Analyst role based on salary and frequency of its mention in job postings.
+
+    The result of this analysis depends on which parameter 
+    is considered most important: the salary or the 
+    frequency of mention. A different result was obtained 
+    for whichever parameter was considered first. FOR THIS 
+    PROJECT, THE SALARY WAS CONSIDERED BEFORE THE COUNT.
+		
+A JOIN operation was also applied in this case to    
+retrieve the necessary data from multiple tables. The 
+average of the salary and the frequency of the skills 
+were evaluated in the same query, and the result was 
+sorted by salary and the frequency of skills.
+
+This analysis presented results that showed at a glance how important skills were in terms of the average-salary they could attract, or how often they were mentioned in job postings. This way, anyone aspiring for the role of a Data Analyst can gauge the OPTIMALITY of a skill of interest.
 
 
--	What I Learned
--	Conclusions
+SQL code is shown below. This uses two Common Table Expressions (CTEs). . . . 
+```sql
+
+    WITH skills_demand AS(
+        SELECT 
+            skills_dim.skill_id AS skill_id,
+            skills_dim.skills AS skills,
+            COUNT(*) AS demand_count
+            
+        FROM
+            job_postings_fact
+        INNER JOIN
+            skills_job_dim ON job_postings_fact.job_id =        skills_job_dim.job_id
+        INNER JOIN
+            skills_dim ON skills_job_dim.skill_id = skillS_dim.skill_id
+        WHERE
+            job_title_short = 'Data Analyst' AND
+            salary_year_avg IS NOT NULL
+        GROUP BY
+            skills_dim.skills,
+            skills_dim.skill_id
+
+),  average_salary AS(
+        SELECT 
+            skills_dim.skill_id AS skill_id,
+            skills_dim.skills AS skills,
+            ROUND(AVG(salary_year_avg), 0) AS avg_salary
+            
+        FROM
+            job_postings_fact
+        INNER JOIN
+            skills_job_dim ON job_postings_fact.job_id = skills_job_dim.job_id
+        INNER JOIN
+            skills_dim ON skills_job_dim.skill_id = skillS_dim.skill_id
+        WHERE
+            job_title_short = 'Data Analyst' AND
+            salary_year_avg IS NOT NULL
+        GROUP BY
+            skills_dim.skills,
+            skills_dim.skill_id
+)
+
+SELECT
+    skills_demand.skill_id,
+    skills_demand.skills,
+    demand_count,
+    avg_salary
+FROM
+    skills_demand
+INNER JOIN
+    average_salary ON skills_demand.skill_id = average_salary.skill_id
+ORDER BY
+    avg_salary DESC,
+    demand_count DESC
+    
+LIMIT 25 ;
+
+```
+
+Alternatively, the SQL code below presents the same result
+
+```sql
+
+    SELECT
+        skd.skills AS skill_name,
+        COUNT(skd.skill_id) AS skills_count,
+        ROUND(AVG(jpf.salary_year_avg),2) AS avg_salary        
+FROM
+    job_postings_fact AS jpf
+    
+INNER JOIN
+    skills_job_dim AS skjd ON jpf.job_id = skjd.job_id
+INNER JOIN
+    skills_dim AS skd ON skjd.skill_id = skd.skill_id
+WHERE
+    salary_year_avg IS NOT NULL AND
+    job_title_short = 'Data Analyst' 
+GROUP BY
+    skd.skills
+
+ORDER BY
+   avg_salary DESC,
+   skills_count DESC
+LIMIT
+    25 ;
+
+```
+
+#### INSIGHTS
+
+From an assessment of the first twenty-five (25) skills, those with the highest average yearly salary actually have the lowest demand. This means that the skills THAT ARE NOT FREQUENTLY MENTIONED IN JOB POSTINGS ATTRACT A HIGH AVERAGE SALARY.
+
+The top-paying skills are usually specialized ones
+
+
+## What I Learned
+
+SQL is the Most In-Demand skill for Data Analysts. This is because Businesses maintain a database where the data to be analyzed is stored. Knowing how to retrieve this data, by writing queries, is important.
+
+As a Data Analyst, more money could be earned by climbing the career path from Junior to Senior or Managerial levels.
+
+Knowledge or Acquiring skills in specialized areas like Cloud Computing, Developing Libraries for specialized areas of analysis, and Databases can attract high average salaries for a Data Analyst role.
+
+## Conclusions
 -	Looking Forward
 

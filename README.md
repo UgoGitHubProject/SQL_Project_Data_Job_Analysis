@@ -7,7 +7,9 @@ To see the SQL queries, check here:
 
 
 # Background
-To understand the data job market better, it became imperative to analyze the data job postings for several positions from several locations (cities and countries). This analysis was predicated on the desire for top-paying jobs, knowledge of the skills that are in high demand, and the most optimal skills for a Data Analyst position. Such insights will guide the decisions of job seekers or even professionals in the Data-Inclined field.
+To understand the data job market better, it became imperative to analyze the data job postings for several positions from several locations (cities and countries). 
+
+This analysis was predicated on the desire for top-paying jobs, knowledge of the skills that are in high demand, and the most optimal skills for a Data Analyst position. Such insights will guide the decisions of job seekers or even professionals in the Data-Inclined field.
 
 Five questions will be answered in this project. They include;
 1.	What are the top-paying Data Analyst jobs?
@@ -449,7 +451,7 @@ LIMIT
 
 From an assessment of the first twenty-five (25) skills, those with the highest average yearly salary actually have the lowest demand. This means that the skills THAT ARE NOT FREQUENTLY MENTIONED IN JOB POSTINGS ATTRACT A HIGH AVERAGE SALARY.
 
-The top-paying skills are usually specialized ones
+The top-paying skills are usually specialized ones. Cloud computing and Libraries development can earn you big bucks as a Data Analyst.
 
 
 ## What I Learned
@@ -458,8 +460,19 @@ SQL is the Most In-Demand skill for Data Analysts. This is because Businesses ma
 
 As a Data Analyst, more money could be earned by climbing the career path from Junior to Senior or Managerial levels.
 
-Knowledge or Acquiring skills in specialized areas like Cloud Computing, Developing Libraries for specialized areas of analysis, and Databases can attract high average salaries for a Data Analyst role.
+Acquiring knowledge and skills in specialized areas like Cloud Computing, Developing Libraries for specialized areas of analysis, and Databases can attract high average salaries for a Data Analyst role.
+
+The most in-demand skills for a Data Analyst role are not NECESSARILY the most highest-paying ones.
 
 ## Conclusions
--	Looking Forward
+
+As a data enthusiast or someone interested in data analytics, data science, or data engineering, it is advisable to analyze job postings in those areas to derive a good understanding of the skills required and the salary involved.
+
+Database Querying skills, such as SQL, are highly sought after in data analysis.
+
+Cloud computing skills should be considered as well. They can contribute to earning a higher salary.
+
+# Looking Forward
+
+Look for the same dataset from other sources, analyze them, and compare the results. From the results, discover if they agree with those reported here or if they don’t.
 

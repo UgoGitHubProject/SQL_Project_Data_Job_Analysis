@@ -344,11 +344,11 @@ Programming, Libraries, and Analyst Tools are the top 3 categories of the most i
 
 This scenario focused on identifying high-paying, most in-demand skills for a Data Analyst role. It analyzed the skills for a Data Analyst role based on salary and frequency of its mention in job postings.
 
-    The result of this analysis depends on which parameter 
+**The result of this analysis depends on which parameter 
     is considered most important: the salary or the 
     frequency of mention. A different result was obtained 
     for whichever parameter was considered first. FOR THIS 
-    PROJECT, THE SALARY WAS CONSIDERED BEFORE THE COUNT.
+    PROJECT, THE SALARY WAS CONSIDERED BEFORE THE COUNT**.
 		
 A JOIN operation was also applied in this case to    
 retrieve the necessary data from multiple tables. The 
